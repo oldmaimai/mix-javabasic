@@ -1,2 +1,3 @@
 test git branch.
 edit by master and branch.
+bug fixed.
