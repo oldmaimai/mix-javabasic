@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class Stream {
+public class Stream1 {
     public static void main(String[] args) {
         List<String> stringCollection = new ArrayList<>();
         stringCollection.add("ddd2");
