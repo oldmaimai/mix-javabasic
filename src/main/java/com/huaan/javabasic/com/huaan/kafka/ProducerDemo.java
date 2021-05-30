@@ -12,7 +12,7 @@ public class ProducerDemo {
     public static void main(String[] args) {
         boolean isAsync = false;
         Properties props = new Properties();
-        props.put("bootstrap.servers", "localhost:9092");
+        props.put("bootstrap.servers", "192.168.149.131:9092");
         props.put("client.id", "DemoProducer");
         props.put("key.serializer", "org.apache.kafka.common.serialization.IntegerSerializer");
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");

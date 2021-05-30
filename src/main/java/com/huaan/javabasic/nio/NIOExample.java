@@ -1,5 +1,7 @@
 package com.huaan.javabasic.nio;
 
+import org.apache.commons.io.FileUtils;
+
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
@@ -11,12 +13,17 @@ public class NIOExample {
         String src = "D:\\software\\ubuntu\\ubuntu-16.04.1-desktop-amd64.iso";
         String niodest = "D:\\software\\ubuntu\\ubuntu-16.04.1-desktop-amd64_nio.iso";
         String biodest = "D:\\software\\ubuntu\\ubuntu-16.04.1-desktop-amd64_bio.iso";
+        String niodest2 = "D:\\software\\ubuntu\\ubuntu-16.04.1-desktop-amd64_nio2.iso";
         long start = System.currentTimeMillis();
         copyFileUseNIO(src, niodest);
         System.out.println("noi cost : " + (System.currentTimeMillis() - start) + "ms");
         start = System.currentTimeMillis();
         copyFileUseBIO(src, biodest);
         System.out.println("boi cost : " + (System.currentTimeMillis() - start) + "ms");
+        start = System.currentTimeMillis();
+        // 内部也是nio的实现
+        FileUtils.copyFile(new File(src), new File(niodest2));
+        System.out.println("FileUtils noi cost : " + (System.currentTimeMillis() - start) + "ms");
 
 
     }
@@ -61,7 +68,7 @@ public class NIOExample {
         FileChannel inChannel = fi.getChannel();
         FileChannel outChannel = fo.getChannel();
         //获得容器buffer
-        ByteBuffer buffer = ByteBuffer.allocate(1024);
+        ByteBuffer buffer = ByteBuffer.allocate(1024 * 5);
         while (true) {
             //判断是否读完文件
             int eof = inChannel.read(buffer);

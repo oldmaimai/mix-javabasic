@@ -6,7 +6,7 @@ public class DirectoryDelete {
     private static long sum = 0;
     public static void main(String[] args) {
         //String baseDir = "E:\\aaa\\0924-1-37";
-        String baseDir = "G:\\aaa";
+        String baseDir = "c:\\aaa";
         for (File file : new File(baseDir).listFiles()) {
             if (file.isDirectory())
             {
@@ -16,11 +16,11 @@ public class DirectoryDelete {
                 // 找到50M以下的文件夹
                 if (sum1 < 1024 * 1024 *50)
                 {
-                    System.out.println( "rm -rf " + file.getName());
-//                    if (!file.delete())
-//                    {
-//                        System.out.println("can not delete " + file);
-//                    }
+                    if (!file.delete())
+                    {
+                        System.out.println( "rm -rf " + file.getName());
+                        //System.out.println("can not delete " + file);
+                    }
                 }
             }
         }

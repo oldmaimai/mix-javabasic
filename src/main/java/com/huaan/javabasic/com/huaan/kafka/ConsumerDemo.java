@@ -11,7 +11,7 @@ import java.util.UUID;
 public class ConsumerDemo {
     public static void main(String[] args) {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "localhost:9092");
+        props.put("bootstrap.servers", "192.168.149.131:9092");
         //props.put("group.id", "testa");
         props.put("group.id", UUID.randomUUID().toString());
         props.put("enable.auto.commit", "true");
